@@ -24,5 +24,10 @@ class UserFormView(View):
             user=form.save(commit=False)
             
             # cleaned (normalized) data
+            username = form.cleaned_data['Username']
+            password = form.cleaned_data['Password']
+            user.set_password(password)
+            messages.success(request,f'Account created for {username}! You are now able to login')
+            user.save()
             
         
