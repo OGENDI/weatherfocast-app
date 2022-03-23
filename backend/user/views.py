@@ -13,3 +13,5 @@ class UserFormView(View):
     def get(self,request):
         form=self.form_class(None)
         return render(request,self.template_name,{'form':form})
+
+# process form data
