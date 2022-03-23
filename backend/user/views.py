@@ -30,4 +30,20 @@ class UserFormView(View):
             messages.success(request,f'Account created for {username}! You are now able to login')
             user.save()
             
+            # authenticate user
+            user=authenticate(username=username,password=password)
+            
+            if user is not None:
+                
+                if user.is_active:
+                    
+                    login(request,user)
+                    return redirect ('login')
+        
+        return render(request,self.template_name,{'form':form})           
+                
+                
+            
+
+            
         
