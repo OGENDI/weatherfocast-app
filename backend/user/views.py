@@ -7,3 +7,4 @@ from django.views.generic import View
 
 class UserFormView(View):
     form_class=UserRegisterForm
+    template_name='user/registration_form.html'
